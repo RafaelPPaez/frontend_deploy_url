@@ -10,7 +10,7 @@ import { homeData } from "../../../../mocks/dummyData";
 export const MainCarousel = () => {
   const [items, setItems] = useState(homeData);
   const baseURL =
-    "http://ec2-15-228-43-137.sa-east-1.compute.amazonaws.com:8080/filmes";
+    "http://ec2-15-229-116-161.sa-east-1.compute.amazonaws.com:8080/filmes";
   // const baseURL = "https://mack-webmobile.vercel.app/api/users";
   const { get, response, del, put, error, loading } = useFetch(baseURL);
   const [filmes, setFilmes] = useState([]);
