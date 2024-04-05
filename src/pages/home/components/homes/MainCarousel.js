@@ -10,25 +10,25 @@ import { homeData } from "../../../../mocks/dummyData";
 export const MainCarousel = () => {
   const [items, setItems] = useState(homeData);
   const baseURL =
-    "http://ec2-15-228-52-103.sa-east-1.compute.amazonaws.com:8080/filmes";
+    "http://ec2-52-67-68-31.sa-east-1.compute.amazonaws.com:8080/filmes";
   // const baseURL = "https://mack-webmobile.vercel.app/api/users";
   const { get, response, del, put, error, loading } = useFetch(baseURL);
   const [filmes, setFilmes] = useState([]);
 
-  // console.log(baseURL);
-  // useEffect(() => {
-  //   fetch(
-  //     "http://ec2-15-228-43-137.sa-east-1.compute.amazonaws.com:8080/filmes"
-  //   )
-  //     .then((response) => console.log(response.json()))
-  //     .then((data) => {
-  //       console.log("Funcionou");
-  //       setFilmes(data);
-  //     })
-  //     .catch((error) => {
-  //       console.error("Error fetching data:", error);
-  //     });
-  // }, []);
+  console.log(baseURL);
+  useEffect(() => {
+    fetch(
+      "http://ec2-52-67-68-31.sa-east-1.compute.amazonaws.com:8080/filmes"
+    )
+      .then((response) => console.log(response.json()))
+      .then((data) => {
+        console.log("Funcionou");
+        setFilmes(data);
+      })
+      .catch((error) => {
+        console.error("Error fetching data:", error);
+      });
+  }, []);
 
   // fetch("http://ec2-54-94-4-218.sa-east-1.compute.amazonaws.com/series", {
   //   method: "GET",
@@ -68,19 +68,19 @@ export const MainCarousel = () => {
   //   makeAPICall();
   // }, []);
 
-  const buscar = async () => {
-    const resp = await get();
+  // const buscar = async () => {
+  //   const resp = await get();
 
-    if (response.ok) {
-      setFilmes(resp);
-      console.log(filmes);
-    } else {
-      setFilmes([]);
-    }
-  };
-  useEffect(() => {
-    buscar();
-  }, []);
+  //   if (response.ok) {
+  //     setFilmes(resp);
+  //     console.log(filmes);
+  //   } else {
+  //     setFilmes([]);
+  //   }
+  // };
+  // useEffect(() => {
+  //   buscar();
+  // }, []);
 
   return (
     <>
