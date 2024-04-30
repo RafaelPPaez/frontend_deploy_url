@@ -68,7 +68,7 @@ const MoviePage = () => {
   //   }
   // }, [userAval]);
 
-  const baseURLPost = "http://localhost:8080/avaliacoes";
+  const baseURLPost = "http://ec2-18-231-151-160.sa-east-1.compute.amazonaws.com:25000/avaliacoes";
   const { post, response } = useFetch(baseURLPost);
   const HandleEvaluate = async () => {
     if (rating === 0 || comment === "") {
