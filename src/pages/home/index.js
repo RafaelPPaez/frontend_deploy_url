@@ -1,49 +1,65 @@
 import { useState, useEffect } from "react";
-import { popular } from "../../mocks/dummyData";
+// import { movies } from "../../mocks/dummyData"; // dummydata para filmes
+import { books } from "../../mocks/dummyData";
+import { series } from "../../mocks/dummyData";
 import { MainCarousel } from "./components/homes/MainCarousel";
-import { Popular } from "./popular/Popular";
+import { PopularFilmes } from "./popular/PopularFilmes";
+import { PopularBooks } from "./popular/PopularBooks";
+import { PopularSeries } from "./popular/PopularSeries";
 import useFetch from "use-http";
+import Modal from "../../components/modal/Modal";
+import GetMovieData from "../GetMovieData";
 
 export const HomePage = () => {
-  const baseURL = "https://mack-webmobile.vercel.app/api/users";
-  // const baseURL =
-  //   "http://ec2-15-229-109-68.sa-east-1.compute.amazonaws.com/filmes";
+  const baseURLLivros = "http://ec2-15-228-11-5.sa-east-1.compute.amazonaws.com:25000/livros";
+  const { get, response } = useFetch(baseURLLivros);
+  // const [movies, setMovies] = useState([]);
+  const [livros, setLivros] = useState([]);
 
-  const { get, response } = useFetch(baseURL);
-  const [filmes, setFilmes] = useState([]);
-
-  const buscar = async () => {
+  const buscarLivros = async () => {
     const resp = await get();
-
     if (response.ok) {
-      setFilmes(resp);
+      setLivros(resp);
     } else {
-      setFilmes([]);
+      setLivros([]);
     }
   };
   useEffect(() => {
-    buscar();
+    buscarLivros();
   }, []);
 
-  // fetch(baseURL)
-  //   .then((response) => {
-  //     if (!response.ok) {
-  //       throw new Error(`Failed with status code: ${response.status}`);
-  //     }
+  console.log(livros);
 
-  //     return response.json();
-  //   })
-  //   .then((data) => {
-  //     console.log(data);
-  //   })
-  //   .catch((err) => {
-  //     console.log("Fetch Error: ", err);
-  //   });
+  //  API É CHAMADA AQUI APENAS PARA TESTE EM console.LOG
+  // const baseURL = "http://localhost:8080/filmes";
+
+  // const { get, response } = useFetch(baseURL);
+  // const [filmes, setFilmes] = useState([]);
+
+  // const buscar = async () => {
+  //   const resp = await get();
+  //   console.log(resp);
+  //   if (response.ok) {
+  //     setFilmes(resp);
+  //   } else {
+  //     setFilmes([]);
+  //   }
+  // };
+  // useEffect(() => {
+  //   buscar();
+  //   console.log(filmes);
+  // }, []);
+
+  const movies = GetMovieData("filmes");
+  const series = GetMovieData("series");
 
   return (
     <>
       <MainCarousel />
-      <Popular items={filmes} title="Filmes Populares" />
+      <PopularFilmes items={movies} title="Filmes Populares" />
+      <PopularSeries items={series} title="Séries Populares" />
+      <PopularBooks items={livros} title="Livros Populares" />
+      <Modal />
     </>
   );
 };

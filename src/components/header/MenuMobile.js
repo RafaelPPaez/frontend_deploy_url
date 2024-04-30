@@ -1,9 +1,9 @@
 import React, { useState } from "react";
-import "./MenuMobile.css"; // Estilo para o menu (veja abaixo)
+import "./MenuMobile.css";
 import { IoMdClose } from "react-icons/io";
 import { Link } from "react-router-dom";
 
-const MenuMobile = ({ options, onClose }) => {
+const MenuMobile = ({ options, onClose, cookies }) => {
   const [isOpen, setIsOpen] = useState(false);
 
   const handleToggleMenu = () => {
@@ -24,16 +24,21 @@ const MenuMobile = ({ options, onClose }) => {
         <div className="menu-options">
           <IoMdClose className="close-btn" onClick={handleToggleMenu} />
 
-          {options.map((option, index) => (
-            <Link
-              to={`/pages/${option}`}
-              key={index}
-              className="menu-option"
-              onClick={() => handleOptionClick(option)}
-            >
-              {option}
-            </Link>
-          ))}
+          {options.map(
+            (option, index) =>
+              (option !== "Gerenciar" ||
+                (cookies.user &&
+                  cookies.user.username.toUpperCase() === "ADMIN")) && (
+                <Link
+                  to={`/pages/${option}`}
+                  key={index}
+                  className="menu-option"
+                  onClick={() => handleOptionClick(option)}
+                >
+                  {option}
+                </Link>
+              )
+          )}
         </div>
       )}
     </div>

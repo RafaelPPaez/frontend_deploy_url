@@ -4,8 +4,14 @@ import "./App.css";
 import Header from "./components/header/Header";
 import { HomePage } from "./pages/home";
 import MoviePage from "./pages/moviePages/MoviePage";
+import UserPage from "./pages/userPages/UserPage";
 import ContentAdm from "./pages/content_adm/ContentAdm";
-import loginpage from "./pages/LoginPage/loginpage";
+import Login from "./pages/loginPage/Login";
+import Cadastro from "./pages/loginPage/Cadastro";
+import Obras from "./pages/fullContent/Obras";
+import Pesquisa from "./pages/fullContent/Pesquisa";
+import SeriePage from "./pages/seriePage/SeriePage";
+import LivroPage from "./pages/home/livroPage/LivroPage";
 
 function App() {
   const router = createBrowserRouter([
@@ -18,7 +24,7 @@ function App() {
       ),
     },
     {
-      path: "/movie/:movieId",
+      path: "/filmes/:movieId",
       element: (
         <Layout>
           <MoviePage />
@@ -46,10 +52,75 @@ function App() {
       ),
     },
     {
-      path: "/pages/Login",
+      path: "/login",
       element: (
         <Layout>
-          <loginpage />
+          <Login />
+        </Layout>
+      ),
+    },
+    {
+      path: "/user/:userId",
+      element: (
+        <Layout>
+          <UserPage />
+        </Layout>
+      ),
+    },
+    {
+      path: "/filmes",
+      element: (
+        <Layout>
+          <Obras tipo={"filmes"} />
+        </Layout>
+      ),
+    },
+    {
+      path: "/series",
+      element: (
+        <Layout>
+          <Obras tipo={"series"} />
+        </Layout>
+      ),
+    },
+    {
+      path: "/livros",
+      element: (
+        <Layout>
+          <Obras tipo={"livros"} />
+        </Layout>
+      ),
+    },
+    {
+      path: "/livros/:livrosId",
+      element: (
+        <Layout>
+          <LivroPage />
+        </Layout>
+      ),
+    },
+    {
+      path: "/pesquisa/:searchVar",
+      element: (
+        <Layout>
+          <Pesquisa />
+        </Layout>
+      ),
+    },
+    {
+      path: "/cadastro",
+      element: (
+        <Layout>
+          <Cadastro />
+        </Layout>
+      ),
+    },
+
+    {
+      path: "/serie/:serieId",
+      element: (
+        <Layout>
+          <SeriePage />
         </Layout>
       ),
     },

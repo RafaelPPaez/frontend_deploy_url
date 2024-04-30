@@ -9,7 +9,7 @@
 }
 
 .App {
-  height: 100vh;
+  height: 90vh;
 }
 
 body {
@@ -44,6 +44,10 @@ nav.navbar {
   width: 80%;
 }
 
+.header.navbar {
+  margin-top: 8vh;
+}
+
 .popular {
   height: 56vh;
 }
@@ -74,8 +78,8 @@ button {
 } */
 
 .login:hover {
-  background-color: #f5d520;
-  color: #353434;
+  /* color: #3d70bb; */
+  background-color: hwb(51 12% 51%);
 }
 
 .row {
@@ -123,7 +127,6 @@ button {
 
 .MovieBox {
   width: 485px;
-  height: 760px;
   aspect-ratio: 0.7;
   /* position: relative;
   border-left: 5px solid transparent; */
@@ -133,7 +136,7 @@ button {
   cursor: pointer;
 }
 
-.MovieBox::after {
+/* .MovieBox::after {
   position: absolute;
   background: linear-gradient(180deg, rgba(0, 0, 0, 0.295), 100%, rgb(0, 0, 0));
   top: 0;
@@ -142,7 +145,7 @@ button {
   width: 480px;
   height: 760px;
   z-index: 1;
-}
+} */
 
 .MovieBox .text {
   text-align: center;

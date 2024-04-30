@@ -5,7 +5,10 @@
 .hamburger-btn {
   background: transparent;
   border: none;
-  font-size: 54px;
+  font-size: 4pc;
+  display: flex;
+  align-items: center;
+  height: 100%;
 }
 
 .menu-options {

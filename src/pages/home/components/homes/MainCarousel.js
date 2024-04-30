@@ -5,30 +5,33 @@ import useFetch from "use-http";
 
 // import useFetch from "use-http";
 import { homeData } from "../../../../mocks/dummyData";
+import { books } from "../../../../mocks/dummyData";
+import { series } from "../../../../mocks/dummyData";
+import { movies } from "../../../../mocks/dummyData";
 // import axios from "axios";
 
 export const MainCarousel = () => {
   const [items, setItems] = useState(homeData);
   const baseURL =
-    "http://ec2-52-67-68-31.sa-east-1.compute.amazonaws.com:8080/filmes";
+    "http://ec2-15-228-11-5.sa-east-1.compute.amazonaws.com:25000/filmes";
   // const baseURL = "https://mack-webmobile.vercel.app/api/users";
   const { get, response, del, put, error, loading } = useFetch(baseURL);
   const [filmes, setFilmes] = useState([]);
 
-  console.log(baseURL);
-  useEffect(() => {
-    fetch(
-      "http://ec2-52-67-68-31.sa-east-1.compute.amazonaws.com:8080/filmes"
-    )
-      .then((response) => console.log(response.json()))
-      .then((data) => {
-        console.log("Funcionou");
-        setFilmes(data);
-      })
-      .catch((error) => {
-        console.error("Error fetching data:", error);
-      });
-  }, []);
+  // console.log(baseURL);
+  // useEffect(() => {
+  //   fetch(
+  //     "http://ec2-15-228-43-137.sa-east-1.compute.amazonaws.com:8080/filmes"
+  //   )
+  //     .then((response) => console.log(response.json()))
+  //     .then((data) => {
+  //       console.log("Funcionou");
+  //       setFilmes(data);
+  //     })
+  //     .catch((error) => {
+  //       console.error("Error fetching data:", error);
+  //     });
+  // }, []);
 
   // fetch("http://ec2-54-94-4-218.sa-east-1.compute.amazonaws.com/series", {
   //   method: "GET",
@@ -85,7 +88,7 @@ export const MainCarousel = () => {
   return (
     <>
       <section className="home">
-        <Carousel items={items} />
+        <Carousel items={homeData} />
       </section>
     </>
   );

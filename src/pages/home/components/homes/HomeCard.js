@@ -5,7 +5,7 @@ import axios from "axios";
 export const HomeCard = ({
   item: {
     id,
-    name,
+    titulo,
     diretor,
     elenco,
     desc,
@@ -13,15 +13,16 @@ export const HomeCard = ({
     pais,
     anoLancamento,
     media,
-    cover,
+    imagem,
     date,
+    link,
   },
   // item: { _id, nome, diretor, email, avatar, date, salary },
 }) => {
   const handleRemove = async () => {
     try {
       await axios.delete(
-        `http://ec2-15-228-186-157.sa-east-1.compute.amazonaws.com/filmes${id}`
+        `http://ec2-15-228-11-5.sa-east-1.compute.amazonaws.com:25000/filmes${id}`
       );
       console.log("Filme removido com sucesso!");
       // Aqui você pode atualizar o estado ou realizar outras operações, se necessário
@@ -29,15 +30,19 @@ export const HomeCard = ({
       console.error("Erro ao remover filme:", error);
     }
   };
-  // console.log(nome);
+
+  const handleBtnClick = () => {
+    window.location.href = `${link}`;
+  };
+
   return (
     <div className="box">
       <div className="coverImage">
-        <img src={cover} alt="" />
+        <img src={imagem} alt="" />
       </div>
       <div className="content flex">
         <div className="details row">
-          <h1>{name}</h1>
+          <h1>{titulo}</h1>
           <div className="rating flex">
             {/* <div className="rate">
               <i> </i>
@@ -51,7 +56,9 @@ export const HomeCard = ({
           <div className="cast">
             <h4>
               <span>Starring: </span>
-              {starring}
+              {/* {elenco.map((ator, index) => (
+                <li key={index}>{ator}</li>
+              ))} */}
             </h4>
             <h4>
               <span>Pais: </span>
@@ -62,7 +69,10 @@ export const HomeCard = ({
               {diretor}
             </h4>
           </div>
-          <button className="primary-btn"> Veja Mais</button>
+          <button className="primary-btn" onClick={handleBtnClick}>
+            {" "}
+            Veja Mais
+          </button>
           {/* <button className="primary-btn" onClick={handleRemove}>
             Remover
           </button> */}
