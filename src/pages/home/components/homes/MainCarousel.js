@@ -13,7 +13,7 @@ import { movies } from "../../../../mocks/dummyData";
 export const MainCarousel = () => {
   const [items, setItems] = useState(homeData);
   const baseURL =
-    "http://ec2-15-228-11-5.sa-east-1.compute.amazonaws.com:25000/filmes";
+    "http://ec2-18-231-151-160.sa-east-1.compute.amazonaws.com:25000/filmes";
   // const baseURL = "https://mack-webmobile.vercel.app/api/users";
   const { get, response, del, put, error, loading } = useFetch(baseURL);
   const [filmes, setFilmes] = useState([]);
@@ -21,7 +21,7 @@ export const MainCarousel = () => {
   // console.log(baseURL);
   // useEffect(() => {
   //   fetch(
-  //     "http://ec2-15-228-43-137.sa-east-1.compute.amazonaws.com:8080/filmes"
+  //     "http://ec2-18-231-151-160.sa-east-1.compute.amazonaws.com:25000/filmes"
   //   )
   //     .then((response) => console.log(response.json()))
   //     .then((data) => {

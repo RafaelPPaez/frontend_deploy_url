@@ -1,390 +1,180 @@
-.Login {
-  width: 1280px;
-  height: 832px;
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+main {
+  display: block;
+  margin-top: 2vh;
+}
+
+/* .login-container {
+  background-color: #fff;
+  padding: 20px;
+} */
+
+.login-header {
+  height: 90vh;
+  background-color: #1f1d36;
+  display: flex;
+  flex-direction: row;
+}
+
+.titleh1 {
+  display: flex;
+  font-size: 5vh;
+}
+
+.titleh2 {
+  display: flex;
+  font-size: 6vh;
+  color: #ff1800;
+}
+
+.header-background {
   position: relative;
-  background: white;
+  aspect-ratio: 0.87;
+  width: 100%;
+  padding-top: 80px;
 }
 
-.Fundo {
-  width: 1280px;
-  height: 832px;
-  left: 0px;
-  top: 0px;
+.header-image {
+  z-index: 1;
   position: absolute;
-  background: #353434;
-  border: 1px black solid;
+  inset: 0;
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  object-position: center;
 }
 
-.Frame1 {
-  width: 1280px;
-  height: 832px;
-  left: 0px;
-  top: 0px;
-  position: absolute;
+.logo-container {
+  position: relative;
+  aspect-ratio: 2.03;
+  margin-top: 20px;
+  width: 100%;
+  padding: 20px 0 20px 20px;
 }
 
-.Image10 {
-  width: 474px;
-  height: 832px;
-  left: 0px;
-  top: 0px;
-  position: absolute;
+.company-logo {
+  aspect-ratio: 4;
+  object-fit: contain;
+  object-position: center;
+  width: 100px;
 }
 
-.Bg {
-  width: 806px;
-  height: 832px;
-  left: 474px;
-  top: 0px;
-  position: absolute;
-  background: white;
-  box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.08);
+.login-content {
+  width: 100%;
+  padding: 0 20px;
+  text-align: center;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
-.WelcomeToFunwall {
-  width: 346px;
-  height: 101px;
-  left: 531px;
-  top: 39px;
-  position: absolute;
-  color: #2f2f2f;
-  font-size: 36px;
-  font-family: Poppins;
-  font-weight: 500;
-  line-height: 48.78px;
+.login-title {
+  font-size: 5vh;
 }
 
-.LoginWithGoogle {
-  width: 696.62px;
-  height: 69.04px;
-  left: 539.4px;
-  top: 172.6px;
-  position: absolute;
+.login-description {
+  font-size: 2vh;
 }
 
-.Rectangle2 {
-  width: 696.62px;
-  height: 69.04px;
-  left: 0px;
-  top: 0px;
-  position: absolute;
-  background: white;
-  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.11);
-  border-radius: 8px;
+.login-form {
+  margin-top: 20px;
 }
 
-.Group1 {
-  width: 197.43px;
-  height: 28.32px;
-  left: 250.62px;
-  top: 22.13px;
-  position: absolute;
+.input-container {
+  border-radius: 30px;
+  background-color: rgba(196, 196, 196, 0.35);
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 2vh 12px;
+  margin-bottom: 17px;
 }
 
-.Search1 {
-  width: 32.73px;
-  height: 28.32px;
-  left: 0px;
-  top: 0px;
-  position: absolute;
+.input-icon {
+  height: 50px;
+  object-fit: contain;
+  fill: rgba(255, 255, 255, 0.5);
+  aspect-ratio: 1/1;
 }
 
-.Vector {
-  position: absolute;
+.input-field {
+  background: none;
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 2vh;
+  width: 100%;
+  height: 5vh;
 }
 
-.LoginWithGoogleText {
-  width: 145.26px;
-  height: 19.47px;
-  left: 52.17px;
-  top: 4.43px;
-  position: absolute;
-  color: #2f2f2f;
-  font-size: 16px;
-  font-family: Poppins;
-  font-weight: 400;
-  line-height: 21.68px;
-  word-wrap: break-word;
+.input-field::placeholder {
+  color: rgba(255, 255, 255, 0.5);
 }
 
-.LoginWithFacebook {
-  width: 696.62px;
-  height: 69.04px;
-  left: 539.4px;
-  top: 266.42px;
-  position: absolute;
+.forgot-password {
+  color: #fff854;
+  font: 13px "Open Sans", sans-serif;
+  text-align: center; /* Centralizando o texto */
+  display: block;
+  margin-top: 10px; /* Ajuste opcional do espaçamento superior */
+  margin-bottom: 23px;
+  font-size: 1.5vh;
 }
 
-.Rectangle3 {
-  width: 696.62px;
-  height: 69.04px;
-  left: 0px;
-  top: 0px;
-  position: absolute;
-  background: white;
-  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.11);
-  border-radius: 8px;
+.login-button a {
+  color: #fff;
 }
 
-.Group2 {
-  width: 204.59px;
-  height: 28.32px;
-  left: 245.5px;
-  top: 22.13px;
-  position: absolute;
+.act-buttons {
+  padding-top: 2vh;
+  gap: 20px;
+  display: flex;
+  justify-content: center;
 }
 
-.LoginWithFacebookText {
-  width: 165.72px;
-  height: 19.47px;
-  left: 38.87px;
-  top: 4.43px;
-  position: absolute;
-  color: #2f2f2f;
-  font-size: 16px;
-  font-family: Poppins;
-  font-weight: 400;
-  line-height: 21.68px;
-  word-wrap: break-word;
+.welcome-title {
+  padding-top: 24px;
 }
 
-.Or {
-  width: 688.43px;
-  height: 19.47px;
-  left: 542.46px;
-  top: 366.43px;
-  position: absolute;
+.login-button {
+  border-radius: 30px;
+  background-color: #7c0000;
+  color: #fff;
+  font: 700 14px "Open Sans", sans-serif;
+  letter-spacing: 0.35px;
+  padding: 2vh 2vh;
+  border: none;
+  cursor: pointer;
+  font-size: 2vh;
 }
 
-.Line1 {
-  width: 298.7px;
-  height: 0px;
-  left: 0px;
-  top: 9.74px;
-  position: absolute;
-  border: 1px #bfbfbf solid;
+.signup-text {
+  margin-top: 3vh;
+  font: "Open Sans", sans-serif;
+  font-size: 1.5vh;
+  margin-bottom: 24px;
 }
 
-.Line2 {
-  width: 294.61px;
-  height: 0px;
-  left: 393.83px;
-  top: 9.74px;
-  position: absolute;
-  border: 1px #bfbfbf solid;
-}
-
-.OrText {
-  width: 23.53px;
-  height: 19.47px;
-  left: 334.5px;
-  top: 0px;
-  position: absolute;
-  color: #2f2f2f;
-  font-size: 16px;
-  font-family: Poppins;
-  font-weight: 400;
-  line-height: 21.68px;
-  word-wrap: break-word;
-}
-
-.ForgotPassword {
-  width: 146px;
-  height: 20px;
-  left: 1085px;
-  top: 593px;
-  position: absolute;
-  color: #6358dc;
-  font-size: 16px;
-  font-family: Poppins;
-  font-weight: 400;
-  line-height: 21.68px;
-  word-wrap: break-word;
-}
-
-.Email {
-  width: 686.39px;
-  height: 68.15px;
-  left: 549.62px;
-  top: 417.77px;
-  position: absolute;
-}
-
-.Rectangle4 {
-  width: 686.39px;
-  height: 68.15px;
-  left: 0px;
-  top: 0px;
-  position: absolute;
-  background: #ececec;
-  border-radius: 8px;
-}
-
-.EmailText {
-  width: 33.76px;
-  height: 14.16px;
-  left: 83.88px;
-  top: 13.28px;
-  position: absolute;
-  color: #2f2f2f;
-  font-size: 12px;
-  font-family: Poppins;
-  font-weight: 400;
-  line-height: 16.26px;
-  word-wrap: break-word;
-}
-
-.ExampleGmailCom {
-  width: 184.13px;
-  height: 19.47px;
-  left: 83.88px;
-  top: 32.75px;
-  position: absolute;
-  color: #2f2f2f;
-  font-size: 16px;
-  font-family: Poppins;
+.signup-link {
+  color: #fff;
   font-weight: 700;
-  line-height: 21.68px;
-  word-wrap: break-word;
 }
-
-.Password {
-  width: 686.39px;
-  height: 68.15px;
-  left: 549.62px;
-  top: 503.63px;
-  position: absolute;
-}
-
-.Rectangle5 {
-  width: 686.39px;
-  height: 68.15px;
-  left: 0px;
-  top: 0px;
-  position: absolute;
-  background: #ececec;
-  border-radius: 8px;
-}
-
-.PasswordText {
-  width: 59.33px;
-  height: 14.16px;
-  left: 83.88px;
-  top: 13.28px;
-  position: absolute;
-  color: #2f2f2f;
-  font-size: 12px;
-  font-family: Poppins;
-  font-weight: 400;
-  line-height: 16.26px;
-  word-wrap: break-word;
-}
-
-.PasswordHidden {
-  width: 97.18px;
-  height: 19.47px;
-  left: 83.88px;
-  top: 38.06px;
-  position: absolute;
-  color: #2f2f2f;
-  font-size: 16px;
-  font-family: Poppins;
-  font-weight: 700;
-  line-height: 21.68px;
-  word-wrap: break-word;
-}
-
-.BiEyeFill {
-  width: 22.5px;
-  height: 19.47px;
-  left: 642.4px;
-  top: 28.32px;
-  position: absolute;
-}
-
-.Group {
-  width: 22.5px;
-  height: 13.39px;
-  left: 0px;
-  top: 3.04px;
-  position: absolute;
-}
-
-.Button {
-  width: 686.39px;
-  height: 68.15px;
-  left: 549.62px;
-  top: 633.74px;
-  position: absolute;
-}
-
-.Rectangle6 {
-  width: 686.39px;
-  height: 68.15px;
-  left: 0px;
-  top: 0px;
-  position: absolute;
-  background: #6358dc;
-  border-radius: 8px;
-}
-
-.LoginText {
-  width: 45.01px;
-  height: 19.47px;
-  left: 320.18px;
-  top: 23.9px;
-  position: absolute;
-  color: white;
-  font-size: 16px;
-  font-family: Poppins;
-  font-weight: 600;
-  line-height: 21.68px;
-  word-wrap: break-word;
-}
-
-.RememberMe {
-  width: 156.51px;
-  height: 19.47px;
-  left: 551.67px;
-  top: 593.02px;
-  position: absolute;
-}
-
-.RememberMeText {
-  width: 122.75px;
-  height: 19.47px;
-  left: 33.76px;
-  top: 0px;
-  position: absolute;
-  color: #2f2f2f;
-  font-size: 16px;
-  font-family: Poppins;
-  font-weight: 400;
-  line-height: 21.68px;
-  word-wrap: break-word;
-}
-
-.Check {
-  width: 18.41px;
-  height: 15.93px;
-  left: 0px;
-  top: 1.77px;
-  position: absolute;
-  background: #ececec;
-  border-radius: 4px;
-  border: 1px #d9d9d9 solid;
-}
-
-.DonTHaveAnAccountRegister {
-  width: 264px;
-  height: 18px;
-  left: 745px;
-  top: 744px;
-  position: absolute;
-  color: black;
-  font-size: 16px;
-  font-family: Poppins;
-  font-weight: 400;
-  line-height: 21.68px;
-  word-wrap: break-word;
+@media (max-width: 1110px) {
+  .login-header {
+    height: 100vh;
+    flex-direction: column;
+  }
+  .welcome-title {
+    display: none;
+  }
 }

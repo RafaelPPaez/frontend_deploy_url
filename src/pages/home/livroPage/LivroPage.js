@@ -33,7 +33,7 @@ const LivroPage = () => {
     }
   }, [livroId]);
 
-  const baseURLPost = "http://ec2-15-228-11-5.sa-east-1.compute.amazonaws.com:25000/avaliacoes";
+  const baseURLPost = "http://ec2-18-231-151-160.sa-east-1.compute.amazonaws.com:25000/avaliacoes";
   const { post, response } = useFetch(baseURLPost);
   const HandleEvaluate = async () => {
     if (rating === 0 || comment === "") {
