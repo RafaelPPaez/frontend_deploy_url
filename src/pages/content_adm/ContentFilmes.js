@@ -6,7 +6,7 @@ import { AiFillMessage } from "react-icons/ai";
 import { FaRegTrashAlt, FaEdit, FaSave } from "react-icons/fa";
 
 const ContentFilmes = () => {
-  const baseURL = "http://ec2-18-231-151-160.sa-east-1.compute.amazonaws.com:25000/filmes";
+  const baseURL = "http://localhost:8080/filmes";
   const { get, response, del, put, error, loading } = useFetch(baseURL);
   const [novoItem, setNovoItem] = useState();
   const [movies, setMovies] = useState([]);

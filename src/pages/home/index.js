@@ -11,7 +11,7 @@ import Modal from "../../components/modal/Modal";
 import GetMovieData from "../GetMovieData";
 
 export const HomePage = () => {
-  const baseURLLivros = "http://ec2-18-231-151-160.sa-east-1.compute.amazonaws.com:25000/livros";
+  const baseURLLivros = "http://localhost:8080/livros";
   const { get, response } = useFetch(baseURLLivros);
   // const [movies, setMovies] = useState([]);
   const [livros, setLivros] = useState([]);

@@ -2,7 +2,7 @@ import useFetch from "use-http";
 import { useEffect, useState } from "react";
 
 const GetData = (tipo) => {
-  const baseURL = `http://ec2-18-231-151-160.sa-east-1.compute.amazonaws.com:25000/${tipo}`;
+  const baseURL = `http://localhost:8080/${tipo}`;
   const { get, response } = useFetch(baseURL);
   const [data, setData] = useState([]);
   const buscar = async () => {
