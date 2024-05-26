@@ -12,6 +12,10 @@ import Obras from "./pages/fullContent/Obras";
 import Pesquisa from "./pages/fullContent/Pesquisa";
 import SeriePage from "./pages/seriePage/SeriePage";
 import LivroPage from "./pages/home/livroPage/LivroPage";
+import ContentFilmes from "./pages/content_adm/ContentFilmes";
+import ContentSeries from "./pages/content_adm/ContentSeries";
+import ContentLivros from "./pages/content_adm/ContentLivros";
+import ContentUsers from "./pages/content_adm/ContentUsers";
 
 function App() {
   const router = createBrowserRouter([
@@ -35,7 +39,6 @@ function App() {
       path: "*",
       element: (
         <Layout>
-          {/* <ErrorPage /> */}
           <div className="error">
             <img src="../images/error.gif" />
             <h1 style={{ color: "white" }}>Ops, página não encontrada!</h1>
@@ -44,7 +47,7 @@ function App() {
       ),
     },
     {
-      path: "/pages/Gerenciar",
+      path: "/pages/gerenciar",
       element: (
         <Layout>
           <ContentAdm />
@@ -92,7 +95,7 @@ function App() {
       ),
     },
     {
-      path: "/livros/:livrosId",
+      path: "/livros/:livroId",
       element: (
         <Layout>
           <LivroPage />
@@ -117,10 +120,42 @@ function App() {
     },
 
     {
-      path: "/serie/:serieId",
+      path: "/series/:serieId",
       element: (
         <Layout>
           <SeriePage />
+        </Layout>
+      ),
+    },
+    {
+      path: "/pages/gerenciar/livros",
+      element: (
+        <Layout>
+           <ContentLivros />
+        </Layout>
+      ),
+    },
+    {
+      path: "/pages/gerenciar/series",
+      element: (
+        <Layout>
+           <ContentSeries />
+        </Layout>
+      ),
+    },
+    {
+      path: "/pages/gerenciar/filmes",
+      element: (
+        <Layout>
+           <ContentFilmes />
+        </Layout>
+      ),
+    },
+    {
+      path: "/pages/gerenciar/usuarios",
+      element: (
+        <Layout>
+           <ContentUsers />
         </Layout>
       ),
     },

@@ -9,7 +9,7 @@ import { useCookies } from "react-cookie";
 const Header = () => {
   const menuOptions = ["Filmes", "Séries", "Livros", "Gerenciar"];
   const [cookies, , removeCookie] = useCookies(["user"]);
-  const [sValue, setSValue] = useState();
+  const [sValue, setSValue] = useState("");
 
   const handleLogout = () => {
     removeCookie("user");
@@ -47,8 +47,9 @@ const Header = () => {
                 <Link to="/series">Séries</Link>
                 <Link to="/livros">Livros</Link>
                 {cookies.user &&
-                  cookies.user.username.toUpperCase() === "ADMIN" && (
-                    <Link className="adm_access" to="/pages/Gerenciar">
+                  cookies.user.nome &&
+                  cookies.user.nome.toUpperCase() === "ADMIN" && (
+                    <Link className="adm_access" to="/pages/gerenciar">
                       Gerenciar
                     </Link>
                   )}
@@ -56,7 +57,7 @@ const Header = () => {
             </ul>
           </div>
           <div className="nav_right">
-            <form className="search">
+            <div className="search">
               <input
                 id="txtSearch"
                 type="text"
@@ -64,21 +65,18 @@ const Header = () => {
                 onChange={(e) => {
                   setSValue(e.target.value);
                 }}
-                onKeyPress={handleKeyPress}
                 placeholder="Procurar"
-              ></input>
-            </form>
+                onKeyUp={handleKeyPress}
+              />
+            </div>
             <FaSearch className="mobileSearch" size={30} />
             {cookies.user ? (
               <div className="user-info">
-                <Link to={"/user/" + cookies.user.username}>
+                <Link to={"/user/" + cookies.user.nome}>
                   <img src={cookies.user.avatar} alt="user" />
                 </Link>
-                <Link
-                  className="user-name"
-                  to={"/user/" + cookies.user.username}
-                >
-                  {cookies.user.username}
+                <Link className="user-name" to={"/user/" + cookies.user.nome}>
+                  {cookies.user.nome}
                 </Link>
                 <button className="login" onClick={handleLogout}>
                   Deslogar

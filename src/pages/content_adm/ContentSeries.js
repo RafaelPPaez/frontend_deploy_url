@@ -7,9 +7,9 @@ import { FaRegTrashAlt, FaEdit, FaSave } from "react-icons/fa";
 import axios from "axios";
 import { BiColor } from "react-icons/bi";
 
-const ContentFilmes = () => {
+const ContentSeries = () => {
   const baseURL =
-    "http://ec2-3-82-238-164.compute-1.amazonaws.com:25000/filmes";
+    "http://ec2-3-82-238-164.compute-1.amazonaws.com:25000/series";
   const { get, response, del, put, error, loading } = useFetch(baseURL);
   const [preferencia, setPreferencia] = useState("");
   const [movies, setMovies] = useState([]);
@@ -19,6 +19,7 @@ const ContentFilmes = () => {
   const [anoLancamento, setAnoLancamento] = useState("");
   const [elenco, setElenco] = useState("");
   const [pais, setPais] = useState("");
+  const [temporadas, setTemporadas] = useState("");
   const [genero, setGenero] = useState("");
   const [editandoItem, setEditandoItem] = useState(null);
 
@@ -50,6 +51,7 @@ const ContentFilmes = () => {
       pais: pais,
       elenco: elenco,
       anoLancamento: anoLancamento,
+      num_temporadas: temporadas,
       // avatar: avatar
     };
 
@@ -87,6 +89,7 @@ const ContentFilmes = () => {
     setPais(e.pais);
     setDiretor(e.diretor);
     setGenero(e.genero);
+    setTemporadas(e.num_temporadas);
     setId(e.id);
   };
 
@@ -138,14 +141,14 @@ const ContentFilmes = () => {
             onChange={(e) => setDiretor(e.target.value)}
             required
           />
-          {/* <input
-            type="text"
-            name="genero"
-            placeholder="Gênero"
-            value={genero}
-            onChange={(e) => setGenero(e.target.value)}
+          <input
+            type="number"
+            name="temporadas"
+            placeholder="Temporadas"
+            value={temporadas}
+            onChange={(e) => setTemporadas(e.target.value)}
             required
-          /> */}
+          />
           <select
             name="select"
             value={preferencia}
@@ -193,6 +196,7 @@ const ContentFilmes = () => {
             <th>Ano</th>
             <th>Diretor</th>
             <th>Gênero</th>
+            <th>Temporadas</th>
             <th>Ações</th>
           </tr>
         </thead>
@@ -202,6 +206,7 @@ const ContentFilmes = () => {
             <td>{m.anoLancamento}</td>
             <td>{m.diretor}</td>
             <td>{m.genero}</td>
+            <td>{m.num_temporadas}</td>
             <td className="act-bottons">
               {editandoItem === index ? (
                 <>
@@ -228,4 +233,4 @@ const ContentFilmes = () => {
     </>
   );
 };
-export default ContentFilmes;
+export default ContentSeries;

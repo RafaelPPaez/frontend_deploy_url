@@ -22,7 +22,7 @@ export const HomeCard = ({
   const handleRemove = async () => {
     try {
       await axios.delete(
-        `http://ec2-18-231-151-160.sa-east-1.compute.amazonaws.com:25000/filmes${id}`
+        `http://ec2-15-228-186-157.sa-east-1.compute.amazonaws.com/filmes${id}`
       );
       console.log("Filme removido com sucesso!");
       // Aqui você pode atualizar o estado ou realizar outras operações, se necessário

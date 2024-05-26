@@ -21,14 +21,12 @@ const MoviePage = () => {
   const [movieInfo, setMovieInfo] = useState(null);
   const [hoveredStarIndex, setHoveredStarIndex] = useState(-1);
   const [rating, setRating] = useState(0);
-  // const [notes, setNotes] = useState(Array(5).fill(""));
   const [comment, setComment] = useState("");
   const [cookies] = useCookies(["user"]);
   const [rated, setRated] = useState(false);
 
   const [userAval, setUserAval] = useState({});
 
-  // console.log(movieId);
   const movies = GetData("filmes");
 
   const findMovieById = (movies, id) => {
@@ -61,14 +59,7 @@ const MoviePage = () => {
     setComment(event.target.value);
   };
 
-  // useEffect(() => {
-  //   console.log(userAval);
-  //   if (userAval) {
-  //     PostAvaliacao();
-  //   }
-  // }, [userAval]);
-
-  const baseURLPost = "http://ec2-18-231-151-160.sa-east-1.compute.amazonaws.com:25000/avaliacoes";
+  const baseURLPost = "http://ec2-3-82-238-164.compute-1.amazonaws.com:25000/avaliacoes";
   const { post, response } = useFetch(baseURLPost);
   const HandleEvaluate = async () => {
     if (rating === 0 || comment === "") {
@@ -81,17 +72,10 @@ const MoviePage = () => {
         user_id: { id: cookies.user.id },
       });
 
-      // console.log("ID do user:", cookies.user.id);
-      // console.log("Nome da obra:" + movieInfo.titulo);
-      // console.log("Nota:", rating);
-      // console.log("Comentário:", comment);
-
-      console.log(userAval);
       try {
         const result = await post("", userAval);
         if (response.ok) {
           console.log("Avaliação enviada com sucesso:", result);
-
           window.location.reload();
         } else {
           console.error("Erro ao enviar avaliação:", response.data);

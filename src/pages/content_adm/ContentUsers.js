@@ -7,17 +7,18 @@ import { FaRegTrashAlt, FaEdit, FaSave } from "react-icons/fa";
 import axios from "axios";
 import { BiColor } from "react-icons/bi";
 
-const ContentFilmes = () => {
+const ContentUsers = () => {
   const baseURL =
-    "http://ec2-3-82-238-164.compute-1.amazonaws.com:25000/filmes";
+    "http://ec2-3-82-238-164.compute-1.amazonaws.com:25000/usuarios";
   const { get, response, del, put, error, loading } = useFetch(baseURL);
   const [preferencia, setPreferencia] = useState("");
   const [movies, setMovies] = useState([]);
   const [id, setId] = useState("");
-  const [titulo, setTitulo] = useState("");
-  const [diretor, setDiretor] = useState("");
-  const [anoLancamento, setAnoLancamento] = useState("");
-  const [elenco, setElenco] = useState("");
+  const [nome, setNome] = useState("");
+  const [estado, setEstado] = useState("");
+  const [senha, setSenha] = useState("");
+  const [nascimento, setNascimento] = useState("");
+  const [cidade, setCidade] = useState("");
   const [pais, setPais] = useState("");
   const [genero, setGenero] = useState("");
   const [editandoItem, setEditandoItem] = useState(null);
@@ -33,23 +34,24 @@ const ContentFilmes = () => {
   };
 
   const cancelarEdicao = () => {
-    setTitulo("");
-    setAnoLancamento("");
-    setElenco("");
+    setNome("");
+    setNascimento("");
+    setCidade("");
     setPais("");
-    setDiretor("");
+    setEstado("");
     setGenero("");
     setId("");
   };
 
   const salvarEdicao = async () => {
     const body = {
-      titulo: titulo,
-      diretor: diretor,
+      nome: nome,
+      estado: estado,
+      senha: senha,
       genero: preferencia,
       pais: pais,
-      elenco: elenco,
-      anoLancamento: anoLancamento,
+      cidade: cidade,
+      nascimento: nascimento,
       // avatar: avatar
     };
 
@@ -58,7 +60,6 @@ const ContentFilmes = () => {
         await axios.put(`${baseURL}/${id}`, body);
         alert("Filme atualizado com sucesso.");
       } else {
-        // Otherwise, create a new movie
         await axios.post(baseURL, body);
         alert("Filme adicionado com sucesso.");
       }
@@ -81,11 +82,12 @@ const ContentFilmes = () => {
   const editarItem = async (e) => {
     cancelarEdicao();
 
-    setTitulo(e.titulo);
-    setAnoLancamento(e.anoLancamento);
-    setElenco(e.elenco);
+    setNome(e.nome);
+    setNascimento(e.nascimento);
+    setCidade(e.cidade);
+    setSenha(e.senha);
     setPais(e.pais);
-    setDiretor(e.diretor);
+    setEstado(e.estado);
     setGenero(e.genero);
     setId(e.id);
   };
@@ -100,52 +102,44 @@ const ContentFilmes = () => {
         <div className="inputNovoItem">
           <input
             type="text"
-            name="titulo"
-            placeholder="Titulo"
-            value={titulo}
-            onChange={(e) => setTitulo(e.target.value)}
+            name="nome"
+            placeholder="Nome"
+            value={nome}
+            onChange={(e) => setNome(e.target.value)}
+            required
+          />
+          <input
+            type="text"
+            name="senha"
+            placeholder="Senha"
+            value={senha}
+            onChange={(e) => setSenha(e.target.value)}
             required
           />
           <input
             type="date"
-            name="ano"
-            placeholder="Ano de Lançamento"
-            value={anoLancamento}
-            onChange={(e) => setAnoLancamento(e.target.value)}
+            name="nascimento"
+            placeholder="Ano de Nascimento"
+            value={nascimento}
+            onChange={(e) => setNascimento(e.target.value)}
             required
           />
           <input
             type="text"
-            name="elenco"
-            placeholder="Elenco"
-            value={elenco}
-            onChange={(e) => setElenco(e.target.value)}
+            name="cidade"
+            placeholder="Cidade"
+            value={cidade}
+            onChange={(e) => setCidade(e.target.value)}
             required
           />
           <input
             type="text"
-            name="pais"
-            placeholder="País"
-            value={pais}
-            onChange={(e) => setPais(e.target.value)}
+            name="estado"
+            placeholder="Estado"
+            value={estado}
+            onChange={(e) => setEstado(e.target.value)}
             required
           />
-          <input
-            type="text"
-            name="diretor"
-            placeholder="Diretor"
-            value={diretor}
-            onChange={(e) => setDiretor(e.target.value)}
-            required
-          />
-          {/* <input
-            type="text"
-            name="genero"
-            placeholder="Gênero"
-            value={genero}
-            onChange={(e) => setGenero(e.target.value)}
-            required
-          /> */}
           <select
             name="select"
             value={preferencia}
@@ -189,19 +183,21 @@ const ContentFilmes = () => {
       <table className="tabela-conteudo">
         <thead>
           <tr>
-            <th>Título</th>
-            <th>Ano</th>
-            <th>Diretor</th>
-            <th>Gênero</th>
+            <th>Nome</th>
+            <th>Ano de Nascimento</th>
+            <th>Cidade - Estado</th>
+            <th>Interesse</th>
             <th>Ações</th>
           </tr>
         </thead>
         {movies.map((m, index) => (
           <tr key={m.id}>
-            <td>{m.titulo}</td>
-            <td>{m.anoLancamento}</td>
-            <td>{m.diretor}</td>
-            <td>{m.genero}</td>
+            <td>{m.nome}</td>
+            <td>{m.nascimento}</td>
+            <td>
+              {m.cidade} - {m.estado}
+            </td>
+            <td>{m.interesse}</td>
             <td className="act-bottons">
               {editandoItem === index ? (
                 <>
@@ -228,4 +224,4 @@ const ContentFilmes = () => {
     </>
   );
 };
-export default ContentFilmes;
+export default ContentUsers;

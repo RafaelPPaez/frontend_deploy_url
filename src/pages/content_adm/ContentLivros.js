@@ -7,17 +7,17 @@ import { FaRegTrashAlt, FaEdit, FaSave } from "react-icons/fa";
 import axios from "axios";
 import { BiColor } from "react-icons/bi";
 
-const ContentFilmes = () => {
+const ContentLivros = () => {
   const baseURL =
-    "http://ec2-3-82-238-164.compute-1.amazonaws.com:25000/filmes";
+    "http://ec2-3-82-238-164.compute-1.amazonaws.com:25000/livros";
   const { get, response, del, put, error, loading } = useFetch(baseURL);
   const [preferencia, setPreferencia] = useState("");
   const [movies, setMovies] = useState([]);
   const [id, setId] = useState("");
   const [titulo, setTitulo] = useState("");
-  const [diretor, setDiretor] = useState("");
+  const [autor, setAutor] = useState("");
   const [anoLancamento, setAnoLancamento] = useState("");
-  const [elenco, setElenco] = useState("");
+  const [editora, setEditora] = useState("");
   const [pais, setPais] = useState("");
   const [genero, setGenero] = useState("");
   const [editandoItem, setEditandoItem] = useState(null);
@@ -35,9 +35,9 @@ const ContentFilmes = () => {
   const cancelarEdicao = () => {
     setTitulo("");
     setAnoLancamento("");
-    setElenco("");
+    setEditora("");
     setPais("");
-    setDiretor("");
+    setAutor("");
     setGenero("");
     setId("");
   };
@@ -45,10 +45,10 @@ const ContentFilmes = () => {
   const salvarEdicao = async () => {
     const body = {
       titulo: titulo,
-      diretor: diretor,
+      autor: autor,
       genero: preferencia,
       pais: pais,
-      elenco: elenco,
+      editora: editora,
       anoLancamento: anoLancamento,
       // avatar: avatar
     };
@@ -58,7 +58,6 @@ const ContentFilmes = () => {
         await axios.put(`${baseURL}/${id}`, body);
         alert("Filme atualizado com sucesso.");
       } else {
-        // Otherwise, create a new movie
         await axios.post(baseURL, body);
         alert("Filme adicionado com sucesso.");
       }
@@ -83,9 +82,9 @@ const ContentFilmes = () => {
 
     setTitulo(e.titulo);
     setAnoLancamento(e.anoLancamento);
-    setElenco(e.elenco);
+    setEditora(e.editora);
     setPais(e.pais);
-    setDiretor(e.diretor);
+    setAutor(e.autor);
     setGenero(e.genero);
     setId(e.id);
   };
@@ -116,10 +115,10 @@ const ContentFilmes = () => {
           />
           <input
             type="text"
-            name="elenco"
-            placeholder="Elenco"
-            value={elenco}
-            onChange={(e) => setElenco(e.target.value)}
+            name="editora"
+            placeholder="Editora"
+            value={editora}
+            onChange={(e) => setEditora(e.target.value)}
             required
           />
           <input
@@ -132,10 +131,10 @@ const ContentFilmes = () => {
           />
           <input
             type="text"
-            name="diretor"
-            placeholder="Diretor"
-            value={diretor}
-            onChange={(e) => setDiretor(e.target.value)}
+            name="autor"
+            placeholder="Autor"
+            value={autor}
+            onChange={(e) => setAutor(e.target.value)}
             required
           />
           {/* <input
@@ -191,7 +190,7 @@ const ContentFilmes = () => {
           <tr>
             <th>Título</th>
             <th>Ano</th>
-            <th>Diretor</th>
+            <th>Autor</th>
             <th>Gênero</th>
             <th>Ações</th>
           </tr>
@@ -200,7 +199,7 @@ const ContentFilmes = () => {
           <tr key={m.id}>
             <td>{m.titulo}</td>
             <td>{m.anoLancamento}</td>
-            <td>{m.diretor}</td>
+            <td>{m.autor}</td>
             <td>{m.genero}</td>
             <td className="act-bottons">
               {editandoItem === index ? (
@@ -228,4 +227,4 @@ const ContentFilmes = () => {
     </>
   );
 };
-export default ContentFilmes;
+export default ContentLivros;
